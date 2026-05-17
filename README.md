@@ -11,7 +11,7 @@
 > South Mediterranean University (MedTech), Tunis, Tunisia  
 > CS321 & Prompt Engineering — Supervisor: Prof. Abdeldjalil Labed
 
-Official implementation of the paper *"Do Physical Laws Help LLMs Think?"* accepted at NeurIPS 2025. This repository contains the **PhysReason-800** benchmark, evaluation pipeline, Physical Consistency Score (PCS) scorer, and reproduction scripts for our nine-level graded prompt taxonomy (P1–P9).
+Official implementation of the paper *"Do Physical Laws Help LLMs Think?"*  This repository contains the **PhysReason-800** benchmark, evaluation pipeline, Physical Consistency Score (PCS) scorer, and reproduction scripts for our nine-level graded prompt taxonomy (P1–P9).
 ---
 
 ## 📋 Table of Contents
