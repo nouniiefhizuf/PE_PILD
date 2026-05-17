@@ -1,0 +1,36 @@
+# Core
+numpy>=1.23.0
+pandas>=1.5.0
+scipy>=1.9.0
+scikit-learn>=1.1.0
+
+# LLM APIs
+openai>=1.0.0
+anthropic>=0.21.0
+google-generativeai>=0.3.0
+together>=1.0.0
+
+# NLP / Metrics
+transformers>=4.30.0
+torch>=2.0.0
+bert-score>=0.3.13
+spacy>=3.6.0
+sympy>=1.12
+
+# Statistics
+statsmodels>=0.14.0
+pingouin>=0.5.3
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.15.0
+
+# Utilities
+tqdm>=4.65.0
+pyyaml>=6.0
+python-dotenv>=1.0.0
+jsonlines>=3.1.0
+
+# Data validation
+pydantic>=2.0.0

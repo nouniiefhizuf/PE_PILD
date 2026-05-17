@@ -1,0 +1,31 @@
+{
+  "items": [
+    {
+      "id": "T3-Sample-152",
+      "tier": "Tier-3",
+      "source": "PhysicsQA",
+      "split": "test",
+      "question": "A bullet of mass 10g travelling at 400m/s embeds in a stationary block of mass 1kg on a frictionless surface. What is the block's velocity after impact?",
+      "ground_truth": {
+        "numeric_answer": 3.96,
+        "unit": "m/s",
+        "explanation": "v = p_i / (m_1 + m_2) = 4 / 1.01 \u2248 3.96 m/s",
+        "equations": [
+          "p = m*v",
+          "v = p_i / (m_1 + m_2)"
+        ],
+        "conservation_laws": [
+          "conservation_of_momentum"
+        ]
+      },
+      "difficulty": {
+        "requires_multi_step": true,
+        "requires_conservation_law": true,
+        "requires_lagrangian": false
+      }
+    }
+  ],
+  "metadata": {
+    "split": "test"
+  }
+}

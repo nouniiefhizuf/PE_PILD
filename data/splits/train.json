@@ -1,0 +1,53 @@
+{
+  "items": [
+    {
+      "id": "T2-Sample-047",
+      "tier": "Tier-2",
+      "source": "SciQ",
+      "split": "train",
+      "question": "A car of mass 1200kg accelerates from 0 to 27m/s in 9s. What net force acts on it?",
+      "ground_truth": {
+        "numeric_answer": 3600,
+        "unit": "N",
+        "explanation": "F = m a = 1200 \u00d7 3 = 3600 N",
+        "equations": [
+          "F = m*a",
+          "a = \u0394v/\u0394t"
+        ],
+        "conservation_laws": []
+      },
+      "difficulty": {
+        "requires_multi_step": false,
+        "requires_conservation_law": false,
+        "requires_lagrangian": false
+      }
+    },
+    {
+      "id": "T4-Sample-211",
+      "tier": "Tier-4",
+      "source": "SimVignettes",
+      "split": "train",
+      "question": "Two uniform rods, each of mass 2kg and length 0.8m, are pinned at one end and released from horizontal. Rod B is attached to the tip of Rod A. Find the angular velocity of Rod A when it is vertical.",
+      "ground_truth": {
+        "numeric_answer": 3.83,
+        "unit": "rad/s",
+        "explanation": "T = \u00bd I_A \u03b8\u0307_A\u00b2 + \u00bd I_B \u03b8\u0307_B\u00b2 + m_B v_cm,B\u00b2; using conservation of energy and no-slip constraint yields \u03b8\u0307_A = 3.83 rad/s",
+        "equations": [
+          "T = \u00bd I_A \u03b8\u0307_A\u00b2 + \u00bd I_B \u03b8\u0307_B\u00b2 + m_B v_cm,B\u00b2",
+          "L = T - V"
+        ],
+        "conservation_laws": [
+          "conservation_of_energy"
+        ]
+      },
+      "difficulty": {
+        "requires_multi_step": true,
+        "requires_conservation_law": true,
+        "requires_lagrangian": true
+      }
+    }
+  ],
+  "metadata": {
+    "split": "train"
+  }
+}

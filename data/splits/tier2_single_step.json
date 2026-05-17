@@ -1,0 +1,29 @@
+{
+  "items": [
+    {
+      "id": "T2-Sample-047",
+      "tier": "Tier-2",
+      "source": "SciQ",
+      "split": "train",
+      "question": "A car of mass 1200kg accelerates from 0 to 27m/s in 9s. What net force acts on it?",
+      "ground_truth": {
+        "numeric_answer": 3600,
+        "unit": "N",
+        "explanation": "F = m a = 1200 \u00d7 3 = 3600 N",
+        "equations": [
+          "F = m*a",
+          "a = \u0394v/\u0394t"
+        ],
+        "conservation_laws": []
+      },
+      "difficulty": {
+        "requires_multi_step": false,
+        "requires_conservation_law": false,
+        "requires_lagrangian": false
+      }
+    }
+  ],
+  "metadata": {
+    "split": "tier2_single_step"
+  }
+}

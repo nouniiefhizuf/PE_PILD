@@ -1,0 +1,129 @@
+# Nine-level graded prompt taxonomy (P1–P9)
+# Adapted from Yin et al. (2023) for the physics reasoning axis
+# Each level adds exactly one physics-grounding element to its predecessor.
+
+prompts:
+  P1:
+    name: "Zero-shot bare"
+    phase: "Zero-shot"
+    description: "Problem statement only; no system role, no instruction."
+    system: null
+    user_template: |
+      {question}
+    extra_tokens_estimate: 0
+
+  P2:
+    name: "Zero-shot instructed"
+    phase: "Zero-shot"
+    description: "Adds explicit instruction prefix."
+    system: null
+    user_template: |
+      Answer the following physics question clearly and concisely.
+      {question}
+    extra_tokens_estimate: 6
+
+  P3:
+    name: "Role priming"
+    phase: "Role primed"
+    description: "Expert physicist persona."
+    system: |
+      You are an expert physicist with deep knowledge of classical mechanics, thermodynamics, and fluid dynamics.
+    user_template: |
+      {question}
+    extra_tokens_estimate: 6
+
+  P4:
+    name: "Role + step instruction"
+    phase: "Role primed"
+    description: "Adds chain-of-thought trigger."
+    system: |
+      You are an expert physicist with deep knowledge of classical mechanics, thermodynamics, and fluid dynamics.
+    user_template: |
+      Think step by step before giving your final answer.
+      {question}
+    extra_tokens_estimate: 12
+
+  P5:
+    name: "Conservation law citation"
+    phase: "Physics scaffold"
+    description: "Boxed reminder of relevant conservation laws."
+    system: |
+      You are an expert physicist with deep knowledge of classical mechanics, thermodynamics, and fluid dynamics.
+    user_template: |
+      REMINDER: The relevant conservation laws are:
+      - Conservation of energy: E_total = KE + PE = constant
+      - Conservation of linear momentum: sum(F_ext) = dp/dt
+      - Conservation of mass: d(rho)/dt + div(rho*v) = 0
+      Think step by step, referencing these laws where appropriate.
+      {question}
+    extra_tokens_estimate: 48
+
+  P6:
+    name: "Dimensional analysis scaffold"
+    phase: "Physics scaffold"
+    description: "Explicit dimensional analysis steps."
+    system: |
+      You are an expert physicist with deep knowledge of classical mechanics, thermodynamics, and fluid dynamics.
+    user_template: |
+      Step 1: Identify all relevant physical quantities, their symbols, and SI units.
+      Step 2: Check dimensional consistency of your equations.
+      Step 3: Solve the problem numerically and verify units.
+      {question}
+    extra_tokens_estimate: 72
+
+  P7:
+    name: "Physics chain-of-thought (CoT)"
+    phase: "Full Physics CoT"
+    description: "Rigid three-step scaffold: Identify Laws → Write Equations → Solve."
+    system: |
+      You are an expert physicist with deep knowledge of classical mechanics, thermodynamics, and fluid dynamics.
+    user_template: |
+      Solve this physics problem using the following structured approach:
+      STEP 1 - Identify Laws: State which physical law(s) or principle(s) govern this system (e.g., Newton's second law, conservation of energy, continuity equation).
+      STEP 2 - Write Equations: Express the relevant equations in symbolic form. Check units.
+      STEP 3 - Solve: Substitute known values, simplify, and compute the numerical answer with units.
+      FINAL ANSWER: State your answer clearly on the last line.
+      {question}
+    extra_tokens_estimate: 139
+
+  P8:
+    name: "Lagrangian formulation cue"
+    phase: "Full Physics CoT"
+    description: "Adds Euler–Lagrange scaffold for multi-body systems."
+    system: |
+      You are an expert physicist with deep knowledge of classical mechanics, thermodynamics, and fluid dynamics.
+    user_template: |
+      Solve this physics problem using the following structured approach:
+      STEP 1 - Identify Laws: State which physical law(s) or principle(s) govern this system.
+      STEP 2 - Write Equations: Express the relevant equations in symbolic form. Check units.
+      STEP 3 - Solve: Substitute known values, simplify, and compute the numerical answer with units.
+      Where helpful, define the system's generalized coordinates q_i, express the kinetic energy T and potential energy V, form the Lagrangian L = T - V and derive the equations of motion via the Euler–Lagrange equations:
+      d/dt(dL/dq_dot_i) - dL/dq_i = Q_i
+      where Q_i are any non-conservative generalized forces.
+      FINAL ANSWER: State your answer clearly on the last line.
+      {question}
+    extra_tokens_estimate: 215
+
+  P9:
+    name: "Full Physics-Informed CoT"
+    phase: "Full Physics CoT"
+    description: "Combines role priming, P7 CoT, P8 Lagrangian cue, conservation law statement, and one-shot analogical example."
+    system: |
+      You are a world-class physicist and science educator. You reason carefully about physical systems, always checking conservation laws, dimensional consistency, and physical plausibility of your answers.
+    user_template: |
+      Before solving, study this analogical example from a different domain:
+      # [EXAMPLE]
+      A 0.5kg pendulum of length 1m is released from 30 degrees.
+      Step 1 - Law: Conservation of energy (no friction).
+      Step 2 - Equations: mgh = (1/2)mv^2; h = L(1 - cos theta) => v = sqrt(2gL(1 - cos(30deg))) = sqrt(2*9.8*1*0.134) = 1.62 m/s
+      Step 3 - Answer: 1.62 m/s at the lowest point.
+      Now solve the following using the same structured approach (Steps 1-3), applying Lagrangian mechanics if multi-body, and verify your answer against conservation of energy and momentum.
+      {question}
+    extra_tokens_estimate: 312
+
+validation:
+  n_respondents: 14
+  clarity_mean: 6.2
+  naturalness_mean: 6.1
+  physics_fit_mean: 6.4
+  cronbach_alpha: 0.89

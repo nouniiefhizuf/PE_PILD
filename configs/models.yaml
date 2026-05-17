@@ -1,0 +1,72 @@
+# Model configurations for PhysReason-800 evaluation
+# All experiments use temperature=0.0, max_tokens=1024, seed=42
+
+models:
+  gpt-4o:
+    name: "GPT-4o"
+    exact_version: "gpt-4o-2024-11-20"
+    type: "closed"
+    provider: "openai"
+    api_env_var: "OPENAI_API_KEY"
+    temperature: 0.0
+    max_tokens: 1024
+    seed: 42
+    cost_per_1k_input: 0.0025
+    cost_per_1k_output: 0.0100
+
+  claude-3.5:
+    name: "Claude 3.5 Sonnet"
+    exact_version: "claude-3-5-sonnet-20241022"
+    type: "closed"
+    provider: "anthropic"
+    api_env_var: "ANTHROPIC_API_KEY"
+    temperature: 0.0
+    max_tokens: 1024
+    seed: 42
+    cost_per_1k_input: 0.0030
+    cost_per_1k_output: 0.0150
+
+  gemini-1.5:
+    name: "Gemini 1.5 Pro"
+    exact_version: "gemini-1.5-pro-002"
+    type: "closed"
+    provider: "google"
+    api_env_var: "GOOGLE_API_KEY"
+    temperature: 0.0
+    max_tokens: 1024
+    seed: 42
+    cost_per_1k_input: 0.00125
+    cost_per_1k_output: 0.00500
+
+  llama-3-70b:
+    name: "Llama-3-70B-Instruct"
+    exact_version: "Meta-Llama-3-70B-Instruct"
+    type: "open"
+    provider: "together"
+    api_env_var: "TOGETHER_API_KEY"
+    temperature: 0.0
+    max_tokens: 1024
+    seed: 42
+    cost_per_1k_input: 0.0009
+    cost_per_1k_output: 0.0009
+
+  mixtral-8x22b:
+    name: "Mixtral-8x22B-Instruct"
+    exact_version: "Mixtral-8x22B-Instruct-v0.1"
+    type: "open"
+    provider: "together"
+    api_env_var: "TOGETHER_API_KEY"
+    temperature: 0.0
+    max_tokens: 1024
+    seed: 42
+    cost_per_1k_input: 0.0012
+    cost_per_1k_output: 0.0012
+
+# Reproducibility settings
+defaults:
+  temperature: 0.0
+  max_tokens: 1024
+  top_p: 1.0
+  n_calls_per_item: 5  # API-side stochasticity mitigation
+  random_seed: 42
+  judge_model: "gpt-4o-2024-11-20"  # For LLM-as-judge evaluation

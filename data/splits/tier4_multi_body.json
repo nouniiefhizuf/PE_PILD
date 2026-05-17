@@ -1,0 +1,31 @@
+{
+  "items": [
+    {
+      "id": "T4-Sample-211",
+      "tier": "Tier-4",
+      "source": "SimVignettes",
+      "split": "train",
+      "question": "Two uniform rods, each of mass 2kg and length 0.8m, are pinned at one end and released from horizontal. Rod B is attached to the tip of Rod A. Find the angular velocity of Rod A when it is vertical.",
+      "ground_truth": {
+        "numeric_answer": 3.83,
+        "unit": "rad/s",
+        "explanation": "T = \u00bd I_A \u03b8\u0307_A\u00b2 + \u00bd I_B \u03b8\u0307_B\u00b2 + m_B v_cm,B\u00b2; using conservation of energy and no-slip constraint yields \u03b8\u0307_A = 3.83 rad/s",
+        "equations": [
+          "T = \u00bd I_A \u03b8\u0307_A\u00b2 + \u00bd I_B \u03b8\u0307_B\u00b2 + m_B v_cm,B\u00b2",
+          "L = T - V"
+        ],
+        "conservation_laws": [
+          "conservation_of_energy"
+        ]
+      },
+      "difficulty": {
+        "requires_multi_step": true,
+        "requires_conservation_law": true,
+        "requires_lagrangian": true
+      }
+    }
+  ],
+  "metadata": {
+    "split": "tier4_multi_body"
+  }
+}
