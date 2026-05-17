@@ -1,6 +1,5 @@
 # PhysReason-800: Physics-Informed Evaluation of LLMs as Simulators
 
-[![NeurIPS](https://img.shields.io/badge/NeurIPS-2025-blue)](https://neurips.cc)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![arXiv](https://img.shields.io/badge/arXiv-2501.xxxxx-b31b1b.svg)](https://arxiv.org)
@@ -13,15 +12,6 @@
 > CS321 & Prompt Engineering — Supervisor: Prof. Abdeldjalil Labed
 
 Official implementation of the paper *"Do Physical Laws Help LLMs Think?"* accepted at NeurIPS 2025. This repository contains the **PhysReason-800** benchmark, evaluation pipeline, Physical Consistency Score (PCS) scorer, and reproduction scripts for our nine-level graded prompt taxonomy (P1–P9).
-
----
-
-## 🔥 News
-
-- **[2025-05-17]** Repository released with full evaluation code and dataset splits.
-- **[2025-05-10]** Paper accepted at NeurIPS 2025.
-- **[2025-04-15]** PhysReason-800 benchmark publicly released under CC-BY 4.0.
-
 ---
 
 ## 📋 Table of Contents
